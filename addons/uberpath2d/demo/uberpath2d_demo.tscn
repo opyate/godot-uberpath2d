@@ -1,0 +1,134 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqq0cxk8qhjfq"]
+
+[ext_resource type="Script" path="res://addons/uberpath2d/demo/uberpath2d_demo.gd" id="1_aqqmt"]
+[ext_resource type="Script" path="res://addons/uberpath2d/uberpath2d.gd" id="2_488xf"]
+[ext_resource type="Texture2D" uid="uid://dlph6a8sfpm1b" path="res://debug.png" id="3_e3vby"]
+
+[sub_resource type="Curve2D" id="Curve2D_oeo8s"]
+_data = {
+"points": PackedVector2Array(-43.3761, 71.7557, 43.3761, -71.7557, 0, 0, -32.9828, 81.6573, 32.9828, -81.6573, 64, -119, -77.0243, 53.62, 77.0243, -53.62, 119, -328, 0.716309, -75.866, -0.716309, 75.866, 208, -308, -3.24865, -105.475, 3.24865, 105.475, 211, -201, 0, 0, 0, 0, 298.022, -127.622, -132.051, -78.6542, 132.051, 78.6542, 611, 0)
+}
+point_count = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_piapy"]
+bg_color = Color(0, 0.215686, 0.858824, 1)
+border_width_left = 16
+border_width_top = 16
+border_width_right = 16
+border_width_bottom = 16
+border_color = Color(0, 0.215686, 0.858824, 1)
+
+[node name="demo" type="Node2D"]
+script = ExtResource("1_aqqmt")
+
+[node name="bg" type="ColorRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 800.0
+
+[node name="UberPath2D" type="Path2D" parent="."]
+position = Vector2(629, 420)
+curve = SubResource("Curve2D_oeo8s")
+script = ExtResource("2_488xf")
+
+[node name="bottom_left_rect" type="ColorRect" parent="."]
+offset_left = 58.0
+offset_top = 75.0
+offset_right = 547.0
+offset_bottom = 375.0
+color = Color(1, 0.521569, 0.937255, 1)
+
+[node name="Label" type="Label" parent="bottom_left_rect"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -48.0
+offset_right = 183.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "bottom_left"
+
+[node name="bottom_left_sprite" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0.866667, 1)
+position = Vector2(293, 222)
+texture = ExtResource("3_e3vby")
+
+[node name="bottom_right_rect" type="ColorRect" parent="."]
+offset_left = 732.0
+offset_top = 591.0
+offset_right = 1248.0
+offset_bottom = 731.0
+color = Color(0.345098, 0.745098, 0.988235, 1)
+
+[node name="Label" type="Label" parent="bottom_right_rect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -205.0
+offset_top = -48.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "bottom_right"
+
+[node name="bottom_right_sprite" type="Sprite2D" parent="."]
+modulate = Color(0, 0.376471, 0.611765, 1)
+position = Vector2(1004, 658)
+texture = ExtResource("3_e3vby")
+
+[node name="top_left_rect" type="ColorRect" parent="."]
+offset_left = 65.0
+offset_top = 446.0
+offset_right = 281.0
+offset_bottom = 740.0
+color = Color(0.333333, 1, 0.301961, 1)
+
+[node name="Label" type="Label" parent="top_left_rect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 32
+text = "top_left"
+
+[node name="top_left_sprite" type="Sprite2D" parent="."]
+modulate = Color(0.164706, 0.490196, 0.145098, 1)
+position = Vector2(162, 588)
+texture = ExtResource("3_e3vby")
+
+[node name="top_right_rect" type="ColorRect" parent="."]
+offset_left = 356.0
+offset_top = 447.0
+offset_right = 680.0
+offset_bottom = 733.0
+color = Color(0.25098, 1, 0.737255, 1)
+
+[node name="Label" type="Label" parent="top_right_rect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -141.0
+offset_bottom = 48.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 32
+text = "top_right"
+
+[node name="top_right_sprite" type="Sprite2D" parent="."]
+modulate = Color(0, 0.45098, 0.294118, 1)
+position = Vector2(506, 590)
+texture = ExtResource("3_e3vby")
+
+[node name="run_again" type="Button" parent="."]
+offset_left = 1075.0
+offset_top = 48.0
+offset_right = 1238.0
+offset_bottom = 125.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_piapy")
+text = "run again"
+
+[node name="container" type="Node2D" parent="."]
