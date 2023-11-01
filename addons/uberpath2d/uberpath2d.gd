@@ -6,6 +6,10 @@ extends Path2D
 # https://ask.godotengine.org/32506/how-to-draw-a-curve-in-2d?show=57123#a57123
 
 @export var spline_length: float = 100
+const TOP_LEFT := Vector2i.ZERO
+const TOP_RIGHT := Vector2i(1, 0)
+const BOTTOM_LEFT := Vector2i(0, 1)
+const BOTTOM_RIGHT := Vector2i.ONE
 
 
 @warning_ignore("unused_private_class_variable")
@@ -115,7 +119,7 @@ static func get_bounded_path_follow_2d(
 	node_path:NodePath,
 	_normalized_points: PackedVector2Array,
 	rect: Rect2,
-	start_corner: Vector2i = Vector2i(0, 1),
+	start_corner: Vector2i = BOTTOM_LEFT,
 ) -> PathFollow2D:
 	"""Move the thing at `node_path` along a curve, bound by a `rect`.
 
@@ -136,17 +140,17 @@ static func get_bounded_path_follow_2d(
 	var end_point: Vector2
 	var flip_y: bool = false
 	match start_corner:
-		Vector2i.ZERO:  # top left
+		TOP_LEFT:  # top left
 			flip_y = true
 			start_point = rect.position
 			end_point = rect.position + Vector2(rect.size.x, 0.0)
-		Vector2i.ONE:  # bottom right
+		BOTTOM_RIGHT:  # bottom right
 			start_point = Vector2(rect.end)
 			end_point = rect.position + Vector2(0.0, rect.size.y)
-		Vector2i(0, 1):  # bottom left
+		BOTTOM_LEFT:  # bottom left
 			start_point = rect.position + Vector2(0.0, rect.size.y)
 			end_point = Vector2(rect.end)
-		Vector2i(1, 0):  # top right
+		TOP_RIGHT:  # top right
 			flip_y = true
 			start_point = rect.position + Vector2(rect.size.x, 0.0)
 			end_point = rect.position
