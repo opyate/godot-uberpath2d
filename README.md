@@ -1,5 +1,7 @@
 # godot-uberpath2d
 
+![icon](icon.png)
+
 A Path2D with smoothing, and utilities for restricting it to any Rect2D
 
 # Demo
