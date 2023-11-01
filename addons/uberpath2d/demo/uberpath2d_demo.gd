@@ -54,18 +54,10 @@ func _physics_process(delta):
 	if $run_again.disabled:
 		count += delta
 		if count >= 0.1:
-			var s1 = $bottom_left_sprite.duplicate(0)
-			s1.scale = Vector2(0.5, 0.5)
-			$container.add_child(s1)
-			var s2 = $bottom_right_sprite.duplicate(0)
-			s2.scale = Vector2(0.5, 0.5)
-			$container.add_child(s2)
-			var s3 = $top_left_sprite.duplicate(0)
-			s3.scale = Vector2(0.5, 0.5)
-			$container.add_child(s3)
-			var s4 = $top_right_sprite.duplicate(0)
-			s4.scale = Vector2(0.5, 0.5)
-			$container.add_child(s4)
+			for sp in [$bottom_left_sprite, $bottom_right_sprite, $top_left_sprite, $top_right_sprite]:
+				var sp_clone = $bottom_left_sprite.duplicate(0)
+				sp_clone.scale = Vector2(0.5, 0.5)
+				$container.add_child(sp_clone)
 			count = 0.0
 	else:
 		# reset
