@@ -72,7 +72,7 @@ static func _shift_points(points: PackedVector2Array) -> PackedVector2Array:
 
 static func _get_min_x_and_y(points: PackedVector2Array) -> Vector2:
 	"""Given points, return a vec representing the smallest X and smallest Y
-	from any point.
+	from the points.
 	"""
 	var min_x = INF
 	var min_y = INF
@@ -86,7 +86,7 @@ static func _get_min_x_and_y(points: PackedVector2Array) -> Vector2:
 
 static func _get_max_x_and_y(points: PackedVector2Array) -> Vector2:
 	"""Given points, return a vec representing the largest X and largest Y
-	from any point.
+	from the points.
 	"""
 	var max_x = -INF
 	var max_y = -INF
@@ -170,12 +170,9 @@ static func get_bounded_path_follow_2d(
 	_remote_transform_2d.remote_path = node_path
 
 	var _curve_2d: Curve2D = Curve2D.new()
-	var first_point: Vector2
 	for point in _normalized_points:
 		var denorm_point = start_point + height_vec + Vector2(end_point.x - start_point.x, height) * point
 		_curve_2d.add_point(denorm_point)
-		if not first_point:
-			first_point = denorm_point
 	_path_2d.curve = _curve_2d
 
 	return _path_follow_2d
