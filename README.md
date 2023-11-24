@@ -4,6 +4,9 @@
 
 A Path2D with smoothing, and utilities for restricting it to any Rect2
 
+
+Now on the [official asset library](https://godotengine.org/asset-library/asset/2322).
+
 # Demo
 
 ![Demo](demo.gif)
