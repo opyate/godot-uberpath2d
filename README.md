@@ -7,6 +7,8 @@ A Path2D with smoothing, and utilities for restricting it to any Rect2
 
 Now on the [official asset library](https://godotengine.org/asset-library/asset/2322).
 
+[Announcement blog post here](https://juanuys.com/blog/2023/11/06/uberpath2d-for-godot.html).
+
 # Demo
 
 ![Demo](demo.gif)
